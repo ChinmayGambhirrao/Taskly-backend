@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 });
 
 // Update a card
-router.put(":/id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   const card = await Card.findByIdAndUpdate(
     req.params.id,
     { title: req.body.title, description: req.body.description },
@@ -31,7 +31,7 @@ router.put(":/id", async (req, res) => {
 });
 
 // Delete a card
-router.delete(":/id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   await Card.findByIdAndDelete(req.params.id);
   res.json({ success: true });
 });
